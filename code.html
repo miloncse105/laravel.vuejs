@@ -5,10 +5,6 @@ npm install vue@next
 npm install vue-loader@next
 |
 |
-|
-|
-|
-|
 #FILE:: vite.config.js
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue'
@@ -22,10 +18,6 @@ export default defineConfig({
         }),
     ],
 });
-|
-|
-|
-|
 |
 |
 #CREATE FILE:: resource/views/app.blade.php
@@ -44,10 +36,6 @@ export default defineConfig({
 </html>
 |
 |
-|
-|
-|
-|
 #UPDATE:: Routes/web.php
 <?php
 use Illuminate\Support\Facades\Route;
@@ -55,10 +43,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('{any}', function () {
     return view('app');
 })->where('any','.*');
-|
-|
-|
-|
 |
 |
 #UPDATE:: resources/js/app.js
@@ -70,10 +54,6 @@ import router from './router.js';
 const app = createApp(App);
 app.use(router);
 app.mount('#app');
-|
-|
-|
-|
 |
 |
 #CREATE FILE:: resources/js/router.js
@@ -101,10 +81,6 @@ const router = createRouter({
 export default router;
 |
 |
-|
-|
-|
-|
 #CREATE FILE:: resources/js/components/Home.vue
 <template>
     <div class="home">
@@ -126,10 +102,6 @@ export default router;
 <style scoped>
   
 </style>
-|
-|
-|
-|
 |
 |
 #CREATE FILE:: resources/js/components/Contact.vue
@@ -155,10 +127,6 @@ export default router;
 </style>
 |
 |
-|
-|
-|
-|
 #CREATE FILE:: resources/js/App.vue
 <template>
 <router-link to="/" class="nav-item nav-link">Home</router-link> || 
@@ -167,20 +135,12 @@ export default router;
 </template>
 |
 |
-|
-|
-|
-|
 #CMD::
 npm i @vitejs/plugin-vue
 npm install vue-axios vue-loader vue-router vue-template-compiler
 
 npm rum dev
 php artisan serve
-|
-|
-|
-|
 |
 |
 #CLEAN PROJECT CMD::
@@ -198,19 +158,11 @@ composer dump-autoload
 composer global update
 |
 |
-|
-|
-|
-|
 #LARAVEL PHP ARTISAN CMD::
 php artisan make:controller Home --resource
 php artisan make:controller Home
 php artisan make:model Home
 php artisan make:migration create_homes
-|
-|
-|
-|
 |
 |
 #PAGE REDIRECT TO OTHER PAGE SPECIFIC TIME::
