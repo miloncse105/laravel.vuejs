@@ -419,32 +419,29 @@ export default {
 
 --Api.php--
 <?php
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'post'], function () {
-    Route::get('show', 'App\Http\Controllers\CategoryController@View_Ctrl');
-    Route::post('add', 'App\Http\Controllers\CategoryController@Add_Ctrl');
-    Route::delete('delete/{id}', 'App\Http\Controllers\CategoryController@Delete_Ctrl');
-    Route::get('edit/{id}', 'App\Http\Controllers\CategoryController@Edit_Ctrl');
-    Route::post('update/{id}', 'App\Http\Controllers\CategoryController@Update_Ctrl');
+    Route::get('show', 'App\Http\Controllers\CrudController@View_Ctrl');
+    Route::post('add', 'App\Http\Controllers\CrudController@Add_Ctrl');
+    Route::delete('delete/{id}', 'App\Http\Controllers\CrudController@Delete_Ctrl');
+    Route::get('edit/{id}', 'App\Http\Controllers\CrudController@Edit_Ctrl');
+    Route::post('update/{id}', 'App\Http\Controllers\CrudController@Update_Ctrl');
 });
 
 
 
 --Controller--
 <?php
-
 namespace App\Http\Controllers;
-
-use App\Models\Category;
 use Illuminate\Http\Request;
+
+use App\Models\CrudModel;
 use DB;
 
-class CategoryController extends Controller
+class CrudController extends Controller
 {
-
         public function View_Ctrl(){
                 $view =  Category::select('id','title','description')
                 //->where("id",107)
